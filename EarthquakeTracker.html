@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Recent Quakes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
+
+  </head>
+
+  <body>
+<h1 style="color:black;padding-bottom:0em">Find Recent Earthquakes!</h1>
+<p style="text-align:center">Input a latitude (negative for South) and longitude (negative for West) and a maximum range to find all earthquakes in the last month in that area.<br>Click "Use Current Location" to find earthquakes around your current location.</p>
+
+    <div id="root"></div>
+<form id="fm1" style="padding-bottom:2em">
+  Latitude:<br>
+  <input type="text" name="firstname"><br>
+  Longitude:<br>
+  <input type="text" name="lastname">
+</form>
+
+<div class="slidecontainer">
+<input type="range" min="10" max="100" class="slider" value="50" id="range">
+<p id="displayRange"></p>
+<script>
+var slider = document.getElementById("range");
+var output = document.getElementById("displayRange");
+output.innerHTML="Range: " + slider.value;
+slider.oninput = function() {
+output.innerHTML="Range: " + this.value;
+}
+</script>
+</div>
+
+<input id="submit" type="button" value="Submit" onclick="getCoords();" />
+
+<input id="usecurr" type="button" value="Use Current Location" onclick="getLocation();" />
+<p id="currloc></p>
+
+</body>
+</html>
